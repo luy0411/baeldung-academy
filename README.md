@@ -16,16 +16,6 @@ This repository contains a collection of code examples, tutorials, and related r
 - Java programming examples
 - Tutorials on various Spring and Java topics
 
-## How to Contribute
-Contributions to this repository are welcome! If you have additional examples, improvements to existing code, or new tutorials to add, please feel free to contribute by following these steps:
-
-1. Fork the repository to your GitHub account.
-2. Clone the forked repository to your local machine.
-3. Make your changes or additions.
-4. Commit your changes with clear and descriptive commit messages.
-5. Push your changes to your forked repository.
-6. Submit a pull request to the main repository.
-
 ## Disclaimer
 Please note that the content in this repository is sourced from Baeldung's website and is subject to Baeldung's terms and conditions. All credit for the content goes to Baeldung. This repository is intended solely for educational and learning purposes.
 
