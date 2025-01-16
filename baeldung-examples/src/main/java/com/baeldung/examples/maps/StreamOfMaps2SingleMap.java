@@ -58,11 +58,46 @@ public class StreamOfMaps2SingleMap {
         System.out.println(mergedMap);
         System.out.println("Igual ao expected? " + expectedMap.equals(mergedMap));
     }
-
+    public void theSolutionWithReduce() {
+        Map<String, Integer> mergedMap = Stream.of(playerMap1, playerMap2, playerMap3)
+                .reduce(new HashMap<>(), (acc, map) -> {
+                    acc.putAll(map);
+                    return acc;
+                });
+    
+        System.out.println("\nreduce result:");
+        System.out.println(mergedMap);
+        System.out.println("Igual ao expected? " + expectedMap.equals(mergedMap));
+    }
+    
+    public void theSolutionWithForEach() {
+        Map<String, Integer> mergedMap = new HashMap<>();
+        Stream.of(playerMap1, playerMap2, playerMap3)
+                .forEach(mergedMap::putAll);
+    
+        System.out.println("\nforEach result:");
+        System.out.println(mergedMap);
+        System.out.println("Igual ao expected? " + expectedMap.equals(mergedMap));
+    }
+    
+    public void theSolutionWithMerge() {
+        Map<String, Integer> mergedMap = new HashMap<>(playerMap1);
+        playerMap2.forEach((key, value) -> mergedMap.merge(key, value, (v1, v2) -> v2));
+        playerMap3.forEach((key, value) -> mergedMap.merge(key, value, (v1, v2) -> v2));
+    
+        System.out.println("\nmerge result:");
+        System.out.println(mergedMap);
+        System.out.println("Igual ao expected? " + expectedMap.equals(mergedMap));
+    }
+    
+    // Update main method to include new examples
     public static void main(String[] args) {
         StreamOfMaps2SingleMap clazz = new StreamOfMaps2SingleMap();
         clazz.theProblem();
         clazz.theSolutionWithFlattenMap();
+        clazz.theSolutionWithReduce();
+        clazz.theSolutionWithForEach();
+        clazz.theSolutionWithMerge();
     }
 
 }
